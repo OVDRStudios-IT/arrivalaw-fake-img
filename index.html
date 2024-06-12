@@ -101,7 +101,7 @@
 </head>
 <body>
     <div class="theme-switch-wrapper">
-        <span class="label">Toggle Dark/Light Mode:</span>
+        <span class="label" id="label">Turn on Dark Mode</span>
         <label class="theme-switch">
             <input type="checkbox" id="checkbox">
             <div class="slider"></div>
@@ -115,6 +115,7 @@
     </div>
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const label = document.getElementById('label');
         function switchTheme(e) {
             if (e.target.checked) {
                 document.documentElement.style.setProperty('--bg-color', '#333');
@@ -122,12 +123,14 @@
                 document.documentElement.style.setProperty('--container-bg', '#424242');
                 document.documentElement.style.setProperty('--title-color', '#66bb6a');
                 document.documentElement.style.setProperty('--link-color', '#1de9b6');
+                label.textContent = 'Turn off Dark Mode';
             } else {
                 document.documentElement.style.setProperty('--bg-color', '#f4f4f4');
                 document.documentElement.style.setProperty('--text-color', '#333');
                 document.documentElement.style.setProperty('--container-bg', '#fff');
                 document.documentElement.style.setProperty('--title-color', '#123456');
                 document.documentElement.style.setProperty('--link-color', '#005f73');
+                label.textContent = 'Turn on Dark Mode';
             }
         }
         toggleSwitch.addEventListener('change', switchTheme, false);
