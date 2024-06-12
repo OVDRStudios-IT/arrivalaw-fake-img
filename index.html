@@ -53,6 +53,7 @@
             top: 0;
             right: 0;
             margin: 10px;
+            align-items: center; /* Align the label and the switch vertically */
         }
         .theme-switch {
             display: inline-block;
@@ -91,10 +92,16 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+        .label {
+            margin-right: 10px;
+            font-size: 16px;
+            color: var(--text-color, #333);
+        }
     </style>
 </head>
 <body>
     <div class="theme-switch-wrapper">
+        <span class="label">Toggle Dark/Light Mode:</span>
         <label class="theme-switch">
             <input type="checkbox" id="checkbox">
             <div class="slider"></div>
