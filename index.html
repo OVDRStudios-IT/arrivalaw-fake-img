@@ -14,8 +14,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color, #f4f4f4);
-            color: var(--text-color, #333);
+            background-color: var(--bg-color, #333);
+            color: var(--text-color, #f4f4f4);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -26,20 +26,20 @@
             text-align: center;
             padding: 20px;
             border-radius: 8px;
-            background: var(--container-bg, #fff);
+            background: var(--container-bg, #424242);
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             width: 90%;
             max-width: 600px;
         }
         h1 {
-            color: var(--title-color, #123456);
+            color: var(--title-color, #66bb6a);
         }
         p {
             font-size: 16px;
             line-height: 1.6;
         }
         a {
-            color: var(--link-color, #005f73);
+            color: var(--link-color, #1de9b6);
             text-decoration: none;
             font-weight: bold;
         }
@@ -95,15 +95,15 @@
         .label {
             margin-right: 10px;
             font-size: 16px;
-            color: var(--text-color, #333);
+            color: var(--text-color, #f4f4f4);
         }
     </style>
 </head>
 <body>
     <div class="theme-switch-wrapper">
-        <span class="label" id="label">Turn on Dark Mode</span>
+        <span class="label" id="label">Turn off Dark Mode</span>
         <label class="theme-switch">
-            <input type="checkbox" id="checkbox">
+            <input type="checkbox" id="checkbox" checked>
             <div class="slider"></div>
         </label>
     </div>
@@ -116,6 +116,7 @@
     <script>
         const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
         const label = document.getElementById('label');
+
         function switchTheme(e) {
             if (e.target.checked) {
                 document.documentElement.style.setProperty('--bg-color', '#333');
@@ -133,6 +134,10 @@
                 label.textContent = 'Turn on Dark Mode';
             }
         }
+
+        // Initialize theme based on the checkbox state
+        switchTheme({target: toggleSwitch});
+
         toggleSwitch.addEventListener('change', switchTheme, false);
     </script>
 </body>
