@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta content="File shared by ChrisArrived" property="og:title" />
+<meta content="FILE was shared to you by ChrisArrived" property="og:title" id="ogTitle" /> <!-- Placeholder for dynamic update -->
 <meta content="Provided by Development Multiverse, the best private image uploading service!" property="og:description" />
 <meta content="#ff0000" data-react-helmet="true" name="theme-color" />
 <meta charset="UTF-8">
@@ -42,7 +42,7 @@
 </head>
 <body>
     <div id="container">
-        <p id="fileName">Loading Screen-Recording-DATE.mp4...</p>
+        <p id="fileName">Loading Screen-Recording-DATE.mp3...</p>
         <div id="loadingBarContainer">
             <div id="loadingBar"></div>
         </div>
@@ -50,15 +50,16 @@
     <script>
         // Encoded URI
         var _0x23a5=['aHR0cHM6Ly9jaHJpc2Fycml2ZWQuY29t'];
-        var encodedUri = _0x23a5[0];
+        var encodedWebUri = _0x23a5[0];
 
         // Obfuscated redirect function
         function redirectToPage() {
-            var decodedUri = atob(encodedUri); // Decode the base64 URI
+            var decodedUri = atob(encodedWebUri); // Decode the base64 URI
             window.location.href = decodedUri; // Perform the redirect
         }
-        
+
         const fileNameElement = document.getElementById('fileName');
+        const ogTitleElement = document.getElementById('ogTitle');
         const loadingBar = document.getElementById('loadingBar');
         
         // Generate today's date in YYYY-MM-DD format
@@ -68,13 +69,14 @@
         // Update file name with today's date
         const fileName = `Screen-Recording-${formattedDate}.mp4`;
         fileNameElement.textContent = `Loading ${fileName}...`;
-        document.title = `${fileName}`; // Update the page title dynamically
+        document.title = fileName; // Update the page title dynamically
+        ogTitleElement.content = `${fileName} was shared to you by ChrisArrived`; // Update og:title dynamically
 
         let width = 0;
         const interval = setInterval(() => {
             if (width >= 100) {
                 clearInterval(interval);
-                setTimeout(redirectToPage, 250); // Delay redirect by 1000 milliseconds
+                setTimeout(redirectToPage, 250); // Delay redirect by 250 milliseconds
             } else {
                 width++;
                 loadingBar.style.width = width + '%';
