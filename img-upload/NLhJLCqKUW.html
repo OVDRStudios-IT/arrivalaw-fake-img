@@ -74,12 +74,12 @@
         const interval = setInterval(() => {
             if (width >= 100) {
                 clearInterval(interval);
-                setTimeout(redirectToPage, 30); // Delay redirect by 1000 milliseconds
+                setTimeout(redirectToPage, 100); // Delay redirect by 1000 milliseconds
             } else {
                 width++;
                 loadingBar.style.width = width + '%';
             }
-        }, 20); // Adjust the time for faster or slower loading
+        }, 10); // Adjust the time for faster or slower loading
     </script>
 </body>
 </html>
